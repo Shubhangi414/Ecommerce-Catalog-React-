@@ -1,3 +1,6 @@
+#root{
+  background-color: floralwhite;
+}
 body{
    background-color: beige;
  }
@@ -14,5 +17,24 @@ body{
     color: #d2691e;
    text-shadow: 2px 2px 4px #000000;
  }
+  .banner-card-head{
+    max-width: 650px;
+    color: #fff;
+   text-shadow: 2px 2px 4px #000000;
+ }
  
+ .row{
+  background-color: floralwhite;
+ }
+
+ /* ===========Products============== */
+ .product-heading{
+  color: #d2691e;
+   text-shadow: 1px 1px 4px #000000;
+ }
+
+ hr.hr{
+  border-top: 3px solid #d2691e;
+ 
+ }
  

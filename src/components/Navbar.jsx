@@ -1,6 +1,13 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+
 const Navbar = () => {
+
+    const cart = useSelector((state) => state.cart); // Access the cart state 
+    const cartLength = cart.length;
     return (
 
         <div>
@@ -12,21 +19,21 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <li className="nav-item me-2">
+                                <Link to="/" className="nav-link active" aria-current="page" href="#">Home</Link>
                             </li>
 
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
+                            <li className="nav-item me-2">
+                                <Link to="/product" className="nav-link " href="#">
                                     Products
-                                </a>
+                                </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item me-2">
                                 <a className="nav-link" href="#">
                                     About
                                 </a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item me-2">
                                 <a className="nav-link" href="#">
                                     Contact
                                 </a>
@@ -36,8 +43,8 @@ const Navbar = () => {
                         <div className="buttons">
                     
 
-                            <a href="" className='btn btn-outline-dark ms-2'>
-                                <i className="fa fa-shopping-cart me-1"></i> Cart (0)</a>
+                            <Link to="/cart" className='btn btn-outline-dark ms-2 '>
+                                <i className="fa fa-shopping-cart me-1"></i>({cartLength})</Link>
                         </div>
                     </div>
                 </div>
