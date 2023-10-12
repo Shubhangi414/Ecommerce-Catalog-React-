@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem } from '../redux/action';
+import { removeItem, increaseQuantity, decreaseQuantity } from '../redux/action';
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cart);
@@ -10,36 +10,73 @@ const Cart = () => {
         dispatch(removeItem(product));
     };
 
+    const increaseProductQuantity = (product) => {
+        dispatch(increaseQuantity(product));
+    };
+
+    const decreaseProductQuantity = (product) => {
+        dispatch(decreaseQuantity(product));
+    };
+
+    const calculateTotalPrice = () => {
+        let total = 0;
+        for (const item of cartItems) {
+            total += item.price * item.qty;
+        }
+        return total;
+    };
+
     return (
         <div className="container py-5">
-            <h2>Your Cart</h2>
+            <h2 className='text-center mb-2 fw-bold fs-2'>Your Cart</h2>
             {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
+                <p className='text-center mb-2'>Your cart is empty.</p>
             ) : (
-                <ul className="list-group">
-                    {cartItems.map((item) => (
-                        <li key={item.id} className="list-group-item">
-                            <div className="row">
-                                <div className="col-md-3">
-                                    <img src={item.image} alt={item.title} height="80px" width="80px" />
+                <div>
+                    <ul className="list-group">
+                        {cartItems.map((item) => (
+                            <li key={item.id} className="list-group-item">
+                                <div className="row">
+                                    <div className="col-md-2 ">
+                                        <img src={item.images} alt={item.title} height="150px" width="150px" />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h4 className='fs-3 fw-bold'>{item.title}</h4>
+                                        <p className='fs-4 fw-medium'>Price: ${item.price}</p>
+                                        <p className='fs-5'>Quantity: {item.qty}</p>
+                                    </div>
+                                    <div className="col-md-4  ps-5">
+                                        <div className="cart-buttons">
+                                            <button
+                                                className="btn btn-secondary plus my-5 me-2 "
+                                                onClick={() => increaseProductQuantity(item)}
+                                            >
+                                                +
+                                            </button>
+                                            <button
+                                                className="btn btn-secondary minus me-5"
+                                                onClick={() => decreaseProductQuantity(item)}
+                                            >
+                                                -
+                                               
+                                             
+                                            </button>
+                                            <button
+                                                className="btn btn-danger fs-4"
+                                                onClick={() => removeProduct(item)}
+                                            >
+                                                Remove
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-md-6">
-                                    <h4>{item.title}</h4>
-                                    <p>Price: ${item.price}</p>
-                                    <p>Quantity: {item.qty}</p>
-                                </div>
-                                <div className="col-md-3">
-                                    <button
-                                        className="btn btn-danger"
-                                        onClick={() => removeProduct(item)}
-                                    >
-                                        Remove
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="text-center mt-4">
+                        <p className='fw-bold fs-3 text-end '>Cart Total: ${calculateTotalPrice()}</p>
+                    </div>
+                </div>
             )}
         </div>
     );

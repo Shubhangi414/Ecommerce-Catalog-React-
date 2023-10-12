@@ -16,3 +16,17 @@ export const removeItem= (product) =>{
     }
 }
 
+export const increaseQuantity = (product) => {
+    return {
+        type: "INCREASE_QUANTITY",
+        payload: product,
+    };
+}
+
+export const decreaseQuantity = (product) => {
+    return {
+        type: "DECREASE_QUANTITY",
+        payload: product,
+    };
+}
+

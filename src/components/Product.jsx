@@ -16,7 +16,8 @@ const Product = () => {
     useEffect(() => {
         const getProduct = async () => {
             setLoading(true)
-            const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+            // const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+            const response = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
             setProduct(await response.json())
             setLoading(false)
         }
@@ -38,18 +39,18 @@ const Product = () => {
 
 
     const ShowProduct = () => {
+        if (Object.keys(product).length === 0) {
+            // Product data is not available yet or is empty
+            return <Loading />;
+        }
         return (
             <>
                 <div className="col-md-6">
-                    <img src={product.image} alt={product.title} height="400px" width="400px" />
+                    <img src={product.images} alt={product.title} height="400px" width="400px" />
                 </div>
                 <div className="col-md-6">
-                    <h4 className='text-uppercase text-black-50'>{product.category}</h4>
+                    <h4 className='text-uppercase text-black-50'>{product.category.name}</h4>
                     <h1 className='display-5'>{product.title}</h1>
-                    {/* <p className="lead fw-bolder">
-    Rating {product.rating && product.rating.rate}
-    <i className='fa fa-star'></i>
-</p> */}
                     <h3 className="display-6 fw-bold my-4">
                         ${product.price}
                     </h3>

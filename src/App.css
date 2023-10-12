@@ -1,40 +1,87 @@
-#root{
+#root {
   background-color: floralwhite;
 }
-body{
-   background-color: beige;
- }
- 
- /* =======navbar================*/
- .navbar{
-   background-color: floralwhite;
- }
- 
- /* =============BAnner================ */
- .banner-card-text{
- 
-   max-width: 650px;
-    color: #d2691e;
-   text-shadow: 2px 2px 4px #000000;
- }
-  .banner-card-head{
-    max-width: 650px;
-    color: #fff;
-   text-shadow: 2px 2px 4px #000000;
- }
- 
- .row{
+
+body {
+  background-color: beige;
+}
+
+/* =======navbar================*/
+.navbar {
   background-color: floralwhite;
- }
+}
 
- /* ===========Products============== */
- .product-heading{
+/* =============BAnner================ */
+.banner-card-text {
+
+  max-width: 650px;
   color: #d2691e;
-   text-shadow: 1px 1px 4px #000000;
- }
+  text-shadow: 2px 2px 4px #000000;
+  animation-name: fadeInUp;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  opacity: 1;
 
- hr.hr{
+}
+
+.banner-card-head {
+  max-width: 650px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
+  animation-name: fadeInUp;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  opacity: 0;
+
+
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(200px);
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.banner-card-head:hover {
+  transform: scale(1.1);
+  color: darkgoldenrod;
+}
+
+.banner-card-text:hover {
+  transform: scale(1.9);
+  color: bisque;
+}
+
+.row {
+  background-color: floralwhite;
+}
+
+/* ===========Products============== */
+.product-heading {
+  color: #d2691e;
+  text-shadow: 1px 1px 4px #000000;
+
+}
+
+hr.hr {
   border-top: 3px solid #d2691e;
- 
- }
- 
+
+}
+
+/* =============Cart=============== */
+.plus,
+.minus {
+  max-width: 40px;
+
+}
+
+.cart-buttons {
+  padding-left: 120px;
+}
