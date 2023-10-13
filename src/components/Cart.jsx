@@ -27,16 +27,16 @@ const Cart = () => {
     };
 
     return (
-        <div className="container py-5">
-            <h2 className='text-center mb-2 fw-bold fs-2'>Your Cart</h2>
+        <div className="container py-5 mt-5 ">
+            <h2 className='text-center mb-2 fw-bold fs-2 mt-5'>Your Cart</h2>
             {cartItems.length === 0 ? (
-                <p className='text-center mb-2'>Your cart is empty.</p>
+                <p className='text-center mb-2 mb-5'>Your cart is empty.</p>
             ) : (
                 <div>
-                    <ul className="list-group">
+                    <ul className="list-group mt-5">
                         {cartItems.map((item) => (
                             <li key={item.id} className="list-group-item">
-                                <div className="row">
+                                <div className="row ">
                                     <div className="col-md-2 ">
                                         <img src={item.images} alt={item.title} height="150px" width="150px" />
                                     </div>
@@ -47,20 +47,21 @@ const Cart = () => {
                                     </div>
                                     <div className="col-md-4  ps-5">
                                         <div className="cart-buttons">
-                                            <button
-                                                className="btn btn-secondary plus my-5 me-2 "
-                                                onClick={() => increaseProductQuantity(item)}
-                                            >
-                                                +
-                                            </button>
-                                            <button
-                                                className="btn btn-secondary minus me-5"
+                                        <button
+                                                className="btn btn-secondary minus me-2"
                                                 onClick={() => decreaseProductQuantity(item)}
                                             >
                                                 -
                                                
                                              
                                             </button>
+                                            <button
+                                                className="btn btn-secondary plus my-5 me-5 "
+                                                onClick={() => increaseProductQuantity(item)}
+                                            >
+                                                +
+                                            </button>
+                                            
                                             <button
                                                 className="btn btn-danger fs-4"
                                                 onClick={() => removeProduct(item)}
