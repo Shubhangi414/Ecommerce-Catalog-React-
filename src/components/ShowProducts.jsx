@@ -14,6 +14,7 @@ const ShowProducts = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 8;
+
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = filter.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -22,33 +23,26 @@ const ShowProducts = () => {
         setCurrentPage(pageNumber);
     };
     const totalPages = Math.ceil(filter.length / productsPerPage);
-
-    const handleAllButtonClick = () => {
-        setCurrentPage(1); // Reset to the first page when applying filters
-        filterProduct("All");
-    };
-
-    const handleCategoryButtonClick = (category) => {
-        setCurrentPage(1); // Reset to the first page when applying filters
-        filterProduct(category);
-    };
-
     return (
         <>
             <div className=" buttons d-flex justify-content-center mb-2 pb-5 category-btn flex-wrap">
                 <button
-                    className={`btn btn-outline-dark me-2 fw-medium fs-5 
-                    ${activeCategory === "All" ? 'active' : ''}`}
-                     onClick={handleAllButtonClick}> 
-                    ALL 
-                </button> 
+                    className={`btn btn-outline-dark me-2 fw-medium fs-5 ${activeCategory === "All" ? 'active' : ''}`}
+                    onClick={() => {
+                        setCurrentPage(1); // Reset to the first page when applying filters
+                        filterProduct("All");
+                    }}>
+                    ALL
+                </button>
                 {categories.map((category) => (
                     <button
                         key={category}
-                        className={`btn btn-outline-dark me-2 fw-medium fs-5
-                         ${activeCategory === category ? 'active' : ''}`}
-                         onClick={() => handleCategoryButtonClick(category)} // for categories 
-                         > 
+                        className={`btn btn-outline-dark me-2 fw-medium fs-5 ${activeCategory === category ? 'active' : ''}`}
+                        onClick={() => {
+                            setCurrentPage(1); // Reset to the first page when applying filters
+                            filterProduct(category);
+                        }}
+                    >
                         {category}
                     </button>
                 ))}
@@ -56,6 +50,7 @@ const ShowProducts = () => {
                     {sortByPriceAsc ? "Sort by Price (Low to High)" : "Sort by Price (High to Low)"}
                 </button>
             </div>
+
             {currentProducts.map((product) => (
                 <div className="col-md-6 col-sm-6 col-sm-6  mb-4 col-lg-4 col-xl-3" key={product.id}>
                     <div className="card h-100 text-center p-4">
@@ -96,6 +91,7 @@ const ShowProducts = () => {
                     </li>
                 </ul>
             </nav>
+
         </>
     );
 };

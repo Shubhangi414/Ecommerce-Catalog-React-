@@ -1,7 +1,12 @@
 const cart = []
-
-
-
+const initialState = {
+    data: [],
+    filter: [],
+    loading: false,
+    sortByPriceAsc: true,
+    activeCategory: 'All',
+    categories: [],
+  };
 
 export const handleCart = (state = cart, action) => {
     const product = action.payload;
@@ -55,3 +60,23 @@ export const handleCart = (state = cart, action) => {
     }
 }
 
+const productsReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case 'SET_PRODUCTS':
+        return { ...state, data: action.payload, filter: action.payload };
+      case 'SET_LOADING':
+        return { ...state, loading: action.payload };
+      case 'SET_SORT_ASC':
+        return { ...state, sortByPriceAsc: true };
+      case 'SET_SORT_DESC':
+        return { ...state, sortByPriceAsc: false };
+      case 'SET_ACTIVE_CATEGORY':
+        return { ...state, activeCategory: action.payload };
+      case 'SET_CATEGORIES':
+        return { ...state, categories: action.payload };
+      default:
+        return state;
+    }
+  };
+  
+  export default productsReducer;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useProductsContext } from './context/ProductsContext';
 import ShowProducts from './ShowProducts';
 import Loading from './Loading';
