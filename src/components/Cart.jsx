@@ -47,27 +47,18 @@ const Cart = () => {
                                     </div>
                                     <div className="col-md-4  ps-5">
                                         <div className="cart-buttons">
+                                        <button className="btn btn-secondary minus me-2"
+                                                onClick={() => decreaseProductQuantity(item)}>-
+                                        </button>
                                         <button
-                                                className="btn btn-secondary minus me-2"
-                                                onClick={() => decreaseProductQuantity(item)}
-                                            >
-                                                -
-                                               
-                                             
-                                            </button>
-                                            <button
                                                 className="btn btn-secondary plus my-5 me-5 "
-                                                onClick={() => increaseProductQuantity(item)}
-                                            >
-                                                +
-                                            </button>
-                                            
-                                            <button
+                                                onClick={() => increaseProductQuantity(item)}>+
+                                        </button>
+                                        <button
                                                 className="btn btn-danger fs-4"
-                                                onClick={() => removeProduct(item)}
-                                            >
+                                                onClick={() => removeProduct(item)}>
                                                 Remove
-                                            </button>
+                                        </button>
                                         </div>
                                     </div>
                                 </div>

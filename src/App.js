@@ -13,29 +13,19 @@ import { ProductProvider } from './components/context/ProductsContext';
 
 function App() {
   return (
-    <ProductProvider>
-    <>
-  
- <Router>
- <Navbar />
-      <Routes>
-
-       
-        <Route path='/' element={<Home/>}/>
-       
-        <Route path='product' element={<Products/>}/>
-       
-        <Route path='product/:id' element={<Product/>}/>
-
-        <Route path='cart' element={<Cart/>}/>
-        <Route path='about' element={<About/>}/>
-        <Route path='contact' element={<Contact/>}/>
-       
-      </Routes>
-    </Router>
-
-    </>
-    </ProductProvider>
+<ProductProvider>
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='product' element={<Products/>}/>
+      <Route path='product/:id' element={<Product/>}/>
+      <Route path='cart' element={<Cart/>}/>
+      <Route path='about' element={<About/>}/>
+      <Route path='contact' element={<Contact/>}/>
+    </Routes>
+  </Router>
+</ProductProvider>
   );
 }
 

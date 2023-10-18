@@ -8,7 +8,7 @@ const ShowProduct = ({ product, productInCart, addProduct }) => {
         return <Loading />;
     }
 
-    return (    
+    return (
         <>
             <div className="col-md-6 ">
                 <img src={product.images[1]} alt={product.title} height="400px" width="400px" />
@@ -20,7 +20,7 @@ const ShowProduct = ({ product, productInCart, addProduct }) => {
                     ${product.price}
                 </h3>
                 <p className="lead">{product.description}</p>
-
+                
                 {productInCart ? (
                     <Link to="/cart" className="btn btn-dark ms-2 px-3">
                         Go To Cart

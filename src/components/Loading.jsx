@@ -9,6 +9,7 @@ const Loading = () => {
                 </div>
             </div>
         </>
+        
     );
 };
 

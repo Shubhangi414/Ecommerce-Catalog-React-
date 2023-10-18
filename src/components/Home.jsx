@@ -15,7 +15,6 @@ const Home = () => {
                             <p className="card-text  fs-1 fw-medium banner-card-text">SHOP NOW!</p>
 
                         </div>
-
                     </div>
                 </div>
             </div>

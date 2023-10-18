@@ -8,7 +8,6 @@ export const addItem = (product) =>{
 }
 
 // for remove item from cart
-
 export const removeItem= (product) =>{
     return {
         type:"REMOVEITEM",
@@ -29,4 +28,5 @@ export const decreaseQuantity = (product) => {
         payload: product,
     };
 }
+
 
