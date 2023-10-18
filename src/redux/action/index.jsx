@@ -30,30 +30,3 @@ export const decreaseQuantity = (product) => {
 }
 
 
-export const setProducts = (products) => ({
-    type: 'SET_PRODUCTS',
-    payload: products,
-  });
-  
-  export const setLoading = (loading) => ({
-    type: 'SET_LOADING',
-    payload: loading,
-  });
-  
-  export const setSortAsc = () => ({
-    type: 'SET_SORT_ASC',
-  });
-  
-  export const setSortDesc = () => ({
-    type: 'SET_SORT_DESC',
-  });
-  
-  export const setActiveCategory = (category) => ({
-    type: 'SET_ACTIVE_CATEGORY',
-    payload: category,
-  });
-  
-  export const setCategories = (categories) => ({
-    type: 'SET_CATEGORIES',
-    payload: categories,
-  });
