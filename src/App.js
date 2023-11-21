@@ -1,4 +1,3 @@
-
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -8,12 +7,11 @@ import Product from './components/SingleProduct';
 import Cart from './components/Cart';
 import About from './components/pages/About';
 import Contact from './components/pages/Contact';
-import { ProductProvider } from './components/context/ProductsContext';
 
 
 function App() {
   return (
-<ProductProvider>
+<>
   <Router>
     <Navbar />
     <Routes>
@@ -25,7 +23,7 @@ function App() {
       <Route path='contact' element={<Contact/>}/>
     </Routes>
   </Router>
-</ProductProvider>
+</>
   );
 }
 

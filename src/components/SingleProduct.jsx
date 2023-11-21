@@ -35,7 +35,7 @@ const Product = () => {
                 {loading ? <Loading /> : <ShowProduct
                     product={product}
                     productInCart={productInCart}
-                    addProduct={addProduct}
+                    addProduct={addProduct}                                                             
                 />}
             </div>
         </div>

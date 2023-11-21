@@ -8,7 +8,7 @@ const ShowProduct = ({ product, productInCart, addProduct }) => {
     }
 
     return (
-        <>
+        <> 
             <div className="col-md-6 ">
                 <img src={product.images[1]} alt={product.title} height="400px" width="400px" />
             </div>

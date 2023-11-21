@@ -30,3 +30,18 @@ export const decreaseQuantity = (product) => {
 }
 
 
+export const setProducts = (products) => ({
+    type: 'SET_PRODUCTS',
+    payload: products,
+  });
+  
+  export const setFilter = (filteredProducts, category) => ({
+    type: 'SET_FILTER',
+    payload: filteredProducts,
+    category,
+  });
+  
+  export const toggleSort = (sortedProducts) => ({
+    type: 'TOGGLE_SORT',
+    payload: sortedProducts,
+  });
